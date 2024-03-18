@@ -1,0 +1,27 @@
+// See https://aka.ms/new-console-template for more informatio
+using System;
+using System.IO;
+
+class Memory
+{
+    static void Main()
+    {
+        try
+        {
+            using (StreamReader memoryReader = new StreamReader("trace.dat"))
+            {
+                string line;
+
+                while ((line = memoryReader.ReadLine()) != null)
+                {
+                    Console.WriteLine(line);
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("The file could not be read: ");
+            Console.WriteLine(ex.Message);
+        }
+    }
+}
