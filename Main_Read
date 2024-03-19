@@ -1,27 +1,32 @@
-// See https://aka.ms/new-console-template for more informatio
-using System;
-using System.IO;
 
-class Memory
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.Runtime.CompilerServices;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Security.Cryptography.X509Certificates;
+
+
+class RWData
 {
     static void Main()
     {
-        try
-        {
-            using (StreamReader memoryReader = new StreamReader("trace.dat"))
-            {
-                string line;
+        printTraceConfig();
+    }
 
-                while ((line = memoryReader.ReadLine()) != null)
-                {
-                    Console.WriteLine(line);
-                }
-            }
-        }
-        catch (Exception ex)
+    private static void printTraceConfig()
+    {
+        string filePath = @"C:\Users\davis\source\repos\Reformed_Memory_Hierarchy\Reformed_Memory_Hierarchy\trace.dat";
+
+        using (StreamReader sr = new StreamReader(filePath))
         {
-            Console.WriteLine("The file could not be read: ");
-            Console.WriteLine(ex.Message);
+            string fileContents = sr.ReadToEnd();
+            Console.WriteLine("trace.config");
+            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine(fileContents);
+            sr.Close();
         }
     }
+
+    
 }
