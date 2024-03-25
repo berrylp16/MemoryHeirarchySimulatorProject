@@ -1,0 +1,15 @@
+C:\Users\rayce\OneDrive\Desktop\Coding\memoryProject\bin\Debug\net6.0\memoryProject.exe
+C:\Users\rayce\OneDrive\Desktop\Coding\memoryProject\bin\Debug\net6.0\memoryProject.deps.json
+C:\Users\rayce\OneDrive\Desktop\Coding\memoryProject\bin\Debug\net6.0\memoryProject.runtimeconfig.json
+C:\Users\rayce\OneDrive\Desktop\Coding\memoryProject\bin\Debug\net6.0\memoryProject.dll
+C:\Users\rayce\OneDrive\Desktop\Coding\memoryProject\bin\Debug\net6.0\memoryProject.pdb
+C:\Users\rayce\OneDrive\Desktop\Coding\memoryProject\obj\Debug\net6.0\memoryProject.csproj.AssemblyReference.cache
+C:\Users\rayce\OneDrive\Desktop\Coding\memoryProject\obj\Debug\net6.0\memoryProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rayce\OneDrive\Desktop\Coding\memoryProject\obj\Debug\net6.0\memoryProject.AssemblyInfoInputs.cache
+C:\Users\rayce\OneDrive\Desktop\Coding\memoryProject\obj\Debug\net6.0\memoryProject.AssemblyInfo.cs
+C:\Users\rayce\OneDrive\Desktop\Coding\memoryProject\obj\Debug\net6.0\memoryProject.csproj.CoreCompileInputs.cache
+C:\Users\rayce\OneDrive\Desktop\Coding\memoryProject\obj\Debug\net6.0\memoryProject.dll
+C:\Users\rayce\OneDrive\Desktop\Coding\memoryProject\obj\Debug\net6.0\refint\memoryProject.dll
+C:\Users\rayce\OneDrive\Desktop\Coding\memoryProject\obj\Debug\net6.0\memoryProject.pdb
+C:\Users\rayce\OneDrive\Desktop\Coding\memoryProject\obj\Debug\net6.0\memoryProject.genruntimeconfig.cache
+C:\Users\rayce\OneDrive\Desktop\Coding\memoryProject\obj\Debug\net6.0\ref\memoryProject.dll
