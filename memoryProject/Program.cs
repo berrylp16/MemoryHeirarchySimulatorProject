@@ -89,10 +89,73 @@ class RWData
         //we can print all output within the function, or change void to string and print as its called.
     }
 
-    private static void firstInFirstOut(Data[] virtualMemory)
+    static void firstInFirstOut(Data[] virtualMemory)
     {
-        //todo
-        //we can print all output within the function, or change void to string and print as its called.
+        Console.WriteLine("FIFO Algorithm:\n");
+        Console.WriteLine("Virtual Address\tVirtual Pg #\tPage Off\tTable Result\tPhysical Page #");
+        Console.WriteLine("---------------|-------------|----------|----------------------|-------------------|");
+        int cacheSize = 3;
+        Data[] cache = new Data[cacheSize];
+        firstInFirstOutRecursive(virtualMemory, cache, 0);
+
+    }
+    
+    static int totalHit = 0;
+    static int totalMiss = 0;
+
+    static void firstInFirstOutRecursive(Data[] virtualMemory, Data[] cache, int index)
+    {
+
+        if (index >= virtualMemory.Length)
+        {
+            return;
+        }
+            
+
+
+        Data currentData = virtualMemory[index];
+        string stringData = currentData.ToString();
+        var last3 = Regex.Match(stringData, @"(.{4})\s*$");
+        string virtualAddress = $"00000{last3}";
+        char virtualPage = stringData[^4];
+        var pageOffset = Regex.Match(stringData, @"(.{3})\s*$");
+        bool inCache = false;
+        bool tableResult = false;
+        for (int i = 0; i < cache.Length; i++)
+        {
+            if (cache[i]._hex == currentData._hex)
+            {
+                inCache = true;
+                tableResult = true;
+            }
+        }
+
+        if (inCache)
+        {
+            totalHit++;
+        }
+        else
+        {
+            totalMiss++;
+
+            for (int i = 0; i < cache.Length - 1; i++)
+            {
+                cache[i] = cache[i + 1];
+            }
+            cache[cache.Length - 1] = currentData;
+        }
+        string tableResultString = tableResult ? "hit" : "miss";
+        Console.WriteLine($"{virtualAddress}\t\t{virtualPage}\t    {pageOffset}\t\t\t{tableResultString}");
+
+        firstInFirstOutRecursive(virtualMemory, cache, index + 1);
+        if(index == cache.Length) 
+        {
+            Console.WriteLine("Simulation Statistics");
+            Console.WriteLine($"Total Hit: {totalHit}");
+            Console.WriteLine($"Total Miss: {totalMiss}");
+            double hitRatio = (double)totalHit / totalMiss;
+            Console.WriteLine($"Hit Ratio: {hitRatio}");
+        }
     }
 
 }
