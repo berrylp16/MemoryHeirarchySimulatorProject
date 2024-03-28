@@ -21,6 +21,14 @@ class RWData
         public char _perm { get; init; }
         public string _hex { get; init; }
         public override string ToString() => $"({_perm},{_hex})";
+        public static bool operator ==(Data obj1, Data obj2)
+        {
+            if (ReferenceEquals(obj1, obj2)) return true;
+            if (ReferenceEquals(obj2, null)) return false;
+            if (ReferenceEquals(obj1, null)) return false;
+            return obj1.Equals(obj2);
+        }
+        public static bool operator !=(Data obj1, Data obj2) => !(obj1 == obj2);
     }
 
 
