@@ -83,11 +83,169 @@ class RWData
         //we can print all output within the function, or change void to string and print as its called.
     }
 
-    private static void greedy(Data[] virtualMemory)
+  private static void greedy(Data[] virtualMemory)
+{
+    // delcare a variable that you will use to increment 
+    int i = 0;
+    int miss = 0; 
+    int counter = 0;    
+   
+    int cache = 4; 
+    
+    //initialize physical memory array size 
+    Data[] physicalMemory = new Data[4];
+    for(int k = 0; k < 5; k++)
     {
-        //todo
-        //we can print all output within the function, or change void to string and print as its called.
+        physicalMemory[k] = new Data(); 
     }
+    //while array is not full, add data and calculate compensatory misses
+    while(physicalMemory.Length < 5)
+    {
+        virtualMemory.CopyTo(physicalMemory, i);
+        miss++;
+        i++;
+    }
+    if(physicalMemory.Length == 4)
+    {
+        //determine which value to remove by incrementing through the virtual memory array
+        //set j = i
+        //use for loop
+        for (int j = i; j < virtualMemory.Length; j++)
+        {
+           
+            if (physicalMemory[0] == virtualMemory[j])
+            {
+                if( counter < cache)
+                {
+                    //icrement counter  
+                    counter++;
+                    break; 
+                }
+                if (counter == 4)
+                {
+                 
+                    miss++;
+
+
+                    //a add next item from virtual memory to cache 
+                    physicalMemory[0] = virtualMemory[j]; 
+
+                    // set counter to 0 again
+
+                    counter = 0; break; 
+                }
+            }
+            if (physicalMemory[1] == virtualMemory[j])
+            {
+                if( counter < cache)
+                {
+                    counter++;
+                    break; 
+                }
+                if( counter == 4)
+                {
+                    
+                    miss++;
+                    // remove item from cache
+                    // add next item from virtual memory to cache
+                    physicalMemory[1] = virtualMemory[j];   
+
+                    // set counter to 0 again
+
+                    counter = 0; break; 
+                }
+            }
+            if (physicalMemory[2] == virtualMemory[j])
+            {
+                if (counter < cache)
+                {
+                    counter++;
+                    break;
+                }
+                if (counter == 4)
+                {
+                    miss++;
+                    // remove item from cache
+                    // add next item from virtual memory to cache }
+                    physicalMemory[2] = virtualMemory[j];
+
+                    // set counter to 0 again
+                    counter = 0; break;
+                }
+            }
+            if (physicalMemory[3] == virtualMemory[j])
+            {
+                if(counter < cache)
+                {
+                    counter++;
+                    break;
+                }
+                if (counter == 4)
+                {
+                        miss++;
+                     // remove item from cache
+                     //a add next item from virtual memory to cache
+                     physicalMemory[3] = virtualMemory[j];
+
+
+                     // set counter to - again
+
+                     counter = 0; break; 
+                }
+            } 
+            if (physicalMemory[0] != virtualMemory[j] && counter >= 4)
+            {
+                    // remove item from cache
+
+                    miss++; 
+                    //a add next item from virtual memory to cache 
+                    physicalMemory[0] = virtualMemory[j];   
+
+
+                    // set counter to - again
+                    counter = 0; break;
+            }
+            if (physicalMemory[1] != virtualMemory[j] && counter >= 4)
+            {
+                    // remove item from cache
+                    miss++; 
+
+                    //a add next item from virtual memory to cache 
+                    physicalMemory[1] = virtualMemory[j];   
+
+
+                    // set counter to - again
+                    counter = 0; break;
+            }
+            if (physicalMemory[2] != virtualMemory[j] && counter >= 4)
+            {
+                    // remove item from cache
+                    miss++; 
+
+                    //a add next item from virtual memory to cache 
+                    physicalMemory[2] = virtualMemory[j];   
+
+
+                    // set counter to - again
+                    counter = 0; break;
+            }
+            if (physicalMemory[3] != virtualMemory[j] && counter >= 4)
+            {
+                    
+                    miss++; 
+
+                    //a add next item from virtual memory to cache 
+                    physicalMemory[3] = virtualMemory[j]; 
+
+                    // set counter to - again
+                    counter = 0; break;
+            }
+        }
+    }
+
+    //we can print all output within the function, or change void to string and print as its called.
+    
+}
 
     private static void firstInFirstOut(Data[] virtualMemory)
     {
